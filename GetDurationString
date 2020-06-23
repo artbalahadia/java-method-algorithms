@@ -7,8 +7,8 @@ public class Main {
         String outputValue = getDurationString(61, 0);
         System.out.println(outputValue);
 
-        String checkedMinutes = getDurationString(4200);
-        System.out.println(checkedMinutes);
+        System.out.println(getDurationString(3660));
+
     }
 
     public static String getDurationString(int minutes, int seconds){
@@ -25,7 +25,8 @@ public class Main {
     public static String getDurationString(int seconds){
         if(seconds >= 0){
             int minuteCheck = seconds / 60;
-            return minuteCheck + " minutes = " + seconds + " seconds";
+            int remSeconds = seconds - (minuteCheck * 60);
+            return getDurationString(minuteCheck, remSeconds);
         }
         return "Invalid Value";
     }
